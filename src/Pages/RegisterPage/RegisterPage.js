@@ -24,7 +24,7 @@ const RegisterPage = () => {
         setSuccessMsg("");
     
         try {
-          const response = await fetch("http://localhost:5000/api/auth/register", { // URL pt test, trebuie schimbat la backend route
+          const response = await fetch("http://localhost:5000/api/auth/register", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

@@ -15,7 +15,7 @@ const LoginPage = () => {
     setErrorMsg('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/login', { // login endpoint
+      const response = await fetch('http://localhost:5000/api/auth/login', { // endpoint login
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -26,8 +26,9 @@ const LoginPage = () => {
         setErrorMsg(data.message || 'Login failed');
       } else {
         localStorage.setItem('jwtToken', data.token);
+        localStorage.setItem('currentUserId', data.user.id);
         console.log('Login sucesful:', data);
-        navigate('/calculator'); // redirecționează după logare
+        navigate('/calculator');
       }
     } catch (error) {
       setErrorMsg('Server error: ' + error.message);

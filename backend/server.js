@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log("Connected to MongoDB"))
 .catch((error) => console.error("Error connecting to MongoDB:", error));
 
-// pentru test
+// pentru test doar
 app.get('/', (req, res) => {
   res.send('Backend is running');
 });
@@ -29,6 +29,7 @@ const diaryRoutes = require('./routes/diary');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/diary', diaryRoutes);
+app.use('/api/auth', authRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

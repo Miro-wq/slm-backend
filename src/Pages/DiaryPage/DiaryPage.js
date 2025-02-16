@@ -12,16 +12,36 @@ const DiaryPage = () => {
   const [productName, setProductName] = useState('');
   const [grams, setGrams] = useState('');
   const [diaryEntries, setDiaryEntries] = useState([]);
-  const [foodsNotRecommended ] = useState([]);
-//   const [calculationDone, setCalculationDone] = useState(false);
+  const [foodsNotRecommended, setFoodsNotRecommended] = useState([]);
+  //   const [calculationDone, setCalculationDone] = useState(false);
 
-  // Obținem currentUserId din localStorage (setat la login)
+  useEffect(() => {
+    // pentru foodsNotRecommended, momentan nu functioneaza
+    const userBloodType = localStorage.getItem("userBloodType");
+    if (userBloodType) {
+      const bloodMapping = { A: 1, B: 2, AB: 3, O: 4 };
+      const bloodIndex = bloodMapping[userBloodType.toUpperCase()];
+      if (bloodIndex) {
+        const filteredFoods = products.filter((product) => {
+          return (
+            product.groupBloodNotAllowed &&
+            product.groupBloodNotAllowed[bloodIndex] === true
+          );
+        });
+        setFoodsNotRecommended(filteredFoods);
+      } else {
+        setFoodsNotRecommended([]);
+      }
+    } else {
+      setFoodsNotRecommended([]);
+    }
+  }, []);
+
   useEffect(() => {
     const storedUserId = localStorage.getItem('currentUserId');
     setCurrentUserId(storedUserId);
   }, []);
 
-  // Funcția de preluare a intrărilor folosind endpointul nostru
   const loadDiaryEntries = useCallback(async () => {
     if (!currentUserId) return;
     try {
@@ -57,15 +77,20 @@ const DiaryPage = () => {
 
   // intrare în diary
   const handleAddEntry = async () => {
-    if (!productName.trim() || !grams.trim() || !currentUserId) return;
+    console.log("Attempting to add entry", { productName, grams, currentUserId, selectedDate });
+    if (!productName.trim() || !grams.trim() || !currentUserId) {
+      console.error("Missing required fields:", { productName, grams, currentUserId });
+      return;
+    }
     const newEntry = {
       entry_date: selectedDate,
       product_name: productName.trim(),
       grams: Number(grams),
     };
-
+  
     try {
       const token = localStorage.getItem('jwtToken');
+      console.log("Using token:", token);
       const response = await fetch('http://localhost:5000/api/diary', {
         method: 'POST',
         headers: {
@@ -77,6 +102,7 @@ const DiaryPage = () => {
       if (!response.ok) {
         console.error('Error inserting diary entry:', response.statusText);
       } else {
+        console.log("Diary entry added successfully");
         setProductName('');
         setGrams('');
         loadDiaryEntries();
@@ -85,6 +111,7 @@ const DiaryPage = () => {
       console.error('Error inserting diary entry:', error);
     }
   };
+  
 
   // stergere intrare din diary
   const handleDeleteEntry = async (id) => {
@@ -236,7 +263,7 @@ const DiaryPage = () => {
             </div>
             <div className={styles.summaryText}>
               <h4>Food not recommended:</h4>
-              {foodsNotRecommended.length > 0 ? (
+              {foodsNotRecommended.length > 0 ? ( // nu afiseaza daca exista recomandari ?????????
                 <div className={styles.foodsNotRecommended}>
                   <ul className={styles.foodList}>
                     {foodsNotRecommended.map((food, index) => (
