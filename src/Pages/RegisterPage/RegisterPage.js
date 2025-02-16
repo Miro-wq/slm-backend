@@ -11,47 +11,50 @@ const RegisterPage = () => {
         email: "",
         password: "",
     });
-    const [errorMsg ] = useState("");
-    const [successMsg ] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
+    const [successMsg, setSuccessMsg] = useState("");
 
     const handleChange = (field) => (event) => {
         setForm({ ...form, [field]: event.target.value });
     };
 
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
-    //     console.log("Submit pressed", form);
-    //     setErrorMsg("");
-    //     setSuccessMsg("");
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        setErrorMsg("");
+        setSuccessMsg("");
+    
+        try {
+          const response = await fetch("http://localhost:5000/api/auth/register", { // URL pt test, trebuie schimbat la backend route
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(form),
+          });
 
-    //     const { error } = await supabase.auth.signUp({
-    //         email: form.email,
-    //         password: form.password,
-    //         options: {
-    //             data: {
-    //                 name: form.name,
-    //             },
-    //         },
-    //     });
+          const data = await response.json();
 
-    //     if (error) {
-    //         setErrorMsg(error.message);
-    //     } else {
-    //         setSuccessMsg(
-    //             "Registration successful! Please check your email to verify your account."
-    //         );
-    //         setTimeout(() => {
-    //             navigate("/login");
-    //         }, 3000);
-    //     }
-    // };
+          if (!response.ok) {
+            setErrorMsg(data.message || "Registration failed");
+          } else {
+            setSuccessMsg(
+              "Registration successful! Please check your email to verify your account."
+            );
+            setTimeout(() => {
+              navigate("/login");
+            }, 3000);
+          }
+        } catch (error) {
+          setErrorMsg("Server error: " + error.message);
+        }
+      };
 
     return (
         <div className={styles.container}>
             <Header />
             <div className={styles.regContainer}>
                 <h2 className={styles.regPage}>Register</h2>
-                <form className={styles.formGroupReg} onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <TextField
                         label="Name"
                         variant="standard"

@@ -9,6 +9,13 @@ const Header = () => {
     return (
         <div>
             <div>
+            <button
+                    className={`${styles.homeButtons} ${location.pathname === '/' ? styles.activeButton : ''
+                        }`}
+                    onClick={() => navigate('/')}
+                >
+                     home
+                </button>
                 <button
                     className={`${styles.homeButtons} ${location.pathname === '/login' ? styles.activeButton : ''
                         }`}
