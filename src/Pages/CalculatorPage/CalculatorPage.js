@@ -69,82 +69,83 @@ const CalculatorPage = () => {
             <LoginHeader />
             <div className={styles.calculatorPage}>
                 <div className={styles.leftSection}>
-                    <h1 className={styles.homeDescription}>
-                        Calculate your daily calorie intake right now
-                    </h1>
-                    <form onSubmit={handleCalculate} className={styles.calcForm}>
-                        <TextField
-                            label="Height"
-                            name="height"
-                            variant="standard"
-                            value={form.height}
-                            onChange={handleChange('height')}
-                            required
-                            fullWidth
-                            margin="normal"
-                            sx={{ width: '240px', marginRight: '20px' }}
-                        />
-                        <TextField
-                            label="Desired Weight"
-                            name="desiredWeight"
-                            variant="standard"
-                            value={form.desiredWeight}
-                            onChange={handleChange('desiredWeight')}
-                            required
-                            fullWidth
-                            margin="normal"
-                            sx={{ width: '240px', marginRight: '20px' }}
-                        />
-                        <TextField
-                            label="Age"
-                            name="age"
-                            variant="standard"
-                            type="number"
-                            value={form.age}
-                            onChange={handleChange('age')}
-                            required
-                            fullWidth
-                            margin="normal"
-                            sx={{ width: '240px', marginRight: '20px' }}
-                        />
-                        <TextField
-                            label="Blood Type (A, B, AB, O)"
-                            name="bloodType"
-                            variant="standard"
-                            value={form.bloodType}
-                            onChange={handleChange('bloodType')}
-                            required
-                            fullWidth
-                            margin="normal"
-                            select
-                            SelectProps={{ native: true }}
-                            sx={{ width: '240px', marginRight: '20px' }}
-                        >
-                            <option value="" />
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="AB">AB</option>
-                            <option value="O">O</option>
-                        </TextField>
-                        <TextField
-                            label="Current Weight"
-                            name="currentWeight"
-                            variant="standard"
-                            type="number"
-                            value={form.currentWeight}
-                            onChange={handleChange('currentWeight')}
-                            required
-                            fullWidth
-                            margin="normal"
-                            sx={{ width: '240px', marginRight: '20px' }}
-                        />
-                        <button type="submit" className={styles.calcSubmitButton}>
-                            Start losing weight
-                        </button>
-                    </form>
+                    <div className={styles.leftSectionContent}>
+                        <h1 className={styles.homeDescription}>
+                            Calculate your daily calorie intake right now
+                        </h1>
+                        <form onSubmit={handleCalculate} className={styles.calcForm}>
+                            <TextField
+                                label="Height"
+                                name="height"
+                                variant="standard"
+                                value={form.height}
+                                onChange={handleChange('height')}
+                                required
+                                fullWidth
+                                margin="normal"
+                                sx={{ width: '240px', marginRight: '20px' }}
+                            />
+                            <TextField
+                                label="Desired Weight"
+                                name="desiredWeight"
+                                variant="standard"
+                                value={form.desiredWeight}
+                                onChange={handleChange('desiredWeight')}
+                                required
+                                fullWidth
+                                margin="normal"
+                                sx={{ width: '240px', marginRight: '20px' }}
+                            />
+                            <TextField
+                                label="Age"
+                                name="age"
+                                variant="standard"
+                                type="number"
+                                value={form.age}
+                                onChange={handleChange('age')}
+                                required
+                                fullWidth
+                                margin="normal"
+                                sx={{ width: '240px', marginRight: '20px' }}
+                            />
+                            <TextField
+                                label="Blood Type (A, B, AB, O)"
+                                name="bloodType"
+                                variant="standard"
+                                value={form.bloodType}
+                                onChange={handleChange('bloodType')}
+                                required
+                                fullWidth
+                                margin="normal"
+                                select
+                                SelectProps={{ native: true }}
+                                sx={{ width: '240px', marginRight: '20px' }}
+                            >
+                                <option value="" />
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="AB">AB</option>
+                                <option value="O">O</option>
+                            </TextField>
+                            <TextField
+                                label="Current Weight"
+                                name="currentWeight"
+                                variant="standard"
+                                type="number"
+                                value={form.currentWeight}
+                                onChange={handleChange('currentWeight')}
+                                required
+                                fullWidth
+                                margin="normal"
+                                sx={{ width: '240px', marginRight: '20px' }}
+                            />
+                            <button type="submit" className={styles.calcSubmitButton}>
+                                Start losing weight
+                            </button>
+                        </form>
+                    </div>
                 </div>
 
-                <div className={styles.vector}></div>
                 <div className={styles.rightSection}>
                     <div className={styles.summary}>
                         <div className={styles.summaryHeader}>

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { TextField, Modal, Box } from '@mui/material';
 import Header from '../../components/Header/Header';
 import products from '../../data/products.json';
+import styles from './HomePage.module.css';
 
 const HomePage = () => {
     const navigate = useNavigate();
@@ -54,10 +55,10 @@ const HomePage = () => {
     };
   
     return (
-      <div>
+      <div className={styles.container}>
         <Header />
-        <div>
-          <h1>
+        <div className={styles.formContainer}>
+          <h1 className={styles.homeDescription}>
             Calculate your daily calorie intake right now
           </h1>
           <form onSubmit={handleSubmit}>
@@ -120,7 +121,7 @@ const HomePage = () => {
               required
               sx={{ width: '240px', marginRight: '20px' }}
             />
-            <button type="submit">
+            <button className={styles.submitButton} type="submit">
               Start losing weight
             </button>
           </form>
@@ -148,10 +149,10 @@ const HomePage = () => {
               alignItems: 'center'
             }}
           >
-            <h2 id="modal-title">
-              Your recommended daily calorie intake is <span>{calorieIntake}</span> kcal
+            <h2 id="modal-title" className={styles.modalTitle}>
+              Your recommended daily calorie intake is <span className={styles.calorieValue}>{calorieIntake}</span> kcal
             </h2>
-            <p id="modal-description">
+            <p id="modal-description" className={styles.modalDescription}>
               Foods you should not eat:
             </p>
   
@@ -162,7 +163,7 @@ const HomePage = () => {
                 ))}
               </ol>
             </Box>
-            <button onClick={handleStartLosingWeight}>
+            <button className={styles.modalButton} onClick={handleStartLosingWeight}>
               Start losing weight
             </button>
           </Box>

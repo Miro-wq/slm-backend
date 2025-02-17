@@ -13,7 +13,6 @@ const DiaryPage = () => {
   const [grams, setGrams] = useState('');
   const [diaryEntries, setDiaryEntries] = useState([]);
   const [foodsNotRecommended, setFoodsNotRecommended] = useState([]);
-  //   const [calculationDone, setCalculationDone] = useState(false);
 
   useEffect(() => {
     // pentru foodsNotRecommended, momentan nu functioneaza
@@ -87,7 +86,7 @@ const DiaryPage = () => {
       product_name: productName.trim(),
       grams: Number(grams),
     };
-  
+
     try {
       const token = localStorage.getItem('jwtToken');
       console.log("Using token:", token);
@@ -111,7 +110,7 @@ const DiaryPage = () => {
       console.error('Error inserting diary entry:', error);
     }
   };
-  
+
 
   // stergere intrare din diary
   const handleDeleteEntry = async (id) => {
@@ -158,66 +157,67 @@ const DiaryPage = () => {
       <LoginHeader />
       <div className={styles.diaryPage}>
         <div className={styles.leftSection}>
-          <div className={styles.datePicker}>
-            <label htmlFor="diary-date"></label>
-            <input
-              className={styles.datePickerInput}
-              type="date"
-              id="diary-date"
-              value={selectedDate}
-              onChange={handleDateChange}
-            />
-          </div>
-          <div className={styles.entryForm}>
-            <TextField
-              label="Enter product name"
-              variant="standard"
-              value={productName}
-              onChange={(e) => setProductName(e.target.value)}
-              fullWidth
-              margin="normal"
-              sx={{ width: '240px', marginRight: '20px' }}
-            />
-            <TextField
-              label="Grams"
-              variant="standard"
-              type="number"
-              value={grams}
-              onChange={(e) => setGrams(e.target.value)}
-              fullWidth
-              margin="normal"
-              sx={{ width: '240px', marginRight: '20px' }}
-            />
-            <button
-              className={styles.addButton}
-              type="button"
-              onClick={handleAddEntry}
-            >
-              +
-            </button>
-          </div>
-          <div className={styles.entriesList}>
-            {diaryEntries.length === 0 ? (
-              <p>No entries for this date.</p>
-            ) : (
-              <ul className={styles.diaryFoodList}>
-                {diaryEntries.map((entry) => (
-                  <li className={styles.diaryFoods} key={entry._id}>
-                    {entry.product_name} - {entry.grams} grams
-                    <button
-                      className={styles.deleteButton}
-                      onClick={() => handleDeleteEntry(entry._id)}
-                    >
-                      X
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            )}
+          <div className={styles.leftSectionContent}>
+            <div className={styles.datePicker}>
+              <label htmlFor="diary-date"></label>
+              <input
+                className={styles.datePickerInput}
+                type="date"
+                id="diary-date"
+                value={selectedDate}
+                onChange={handleDateChange}
+              />
+            </div>
+            <div className={styles.entryForm}>
+              <TextField
+                label="Enter product name"
+                variant="standard"
+                value={productName}
+                onChange={(e) => setProductName(e.target.value)}
+                fullWidth
+                margin="normal"
+                sx={{ width: '240px', marginRight: '20px' }}
+              />
+              <TextField
+                label="Grams"
+                variant="standard"
+                type="number"
+                value={grams}
+                onChange={(e) => setGrams(e.target.value)}
+                fullWidth
+                margin="normal"
+                sx={{ width: '240px', marginRight: '20px' }}
+              />
+              <button
+                className={styles.addButton}
+                type="button"
+                onClick={handleAddEntry}
+              >
+                +
+              </button>
+            </div>
+            <div className={styles.entriesList}>
+              {diaryEntries.length === 0 ? (
+                <p>No entries for this date.</p>
+              ) : (
+                <ul className={styles.diaryFoodList}>
+                  {diaryEntries.map((entry) => (
+                    <li className={styles.diaryFoods} key={entry._id}>
+                      {entry.product_name} - {entry.grams} grams
+                      <button
+                        className={styles.deleteButton}
+                        onClick={() => handleDeleteEntry(entry._id)}
+                      >
+                        X
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
           </div>
         </div>
 
-        <div className={styles.vector}></div>
         <div className={styles.rightSection}>
           <div className={styles.summary}>
             <div className={styles.summaryHeader}>

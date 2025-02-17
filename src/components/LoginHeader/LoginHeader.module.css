@@ -1,0 +1,189 @@
+.buttonContainer {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  right: 0;
+  width: -webkit-fill-available;
+  top: 10em;
+}
+
+.logoImage {
+  width: 167px;
+  height: 66px;
+}
+
+.logoImage2 {
+  display: none;
+}
+
+.calcBtnContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.homeButtonsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  border-left: 3px solid #e0e0e0;
+  padding: 0 0 0 10px;
+}
+
+.homeButtons {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #9b9faa;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.headerRight {
+  display: flex;
+  gap: 20px;
+}
+
+.userName {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-align: right;
+  color: #212121;
+}
+
+.exitButton {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+  border: none;
+  padding-left: 20px;
+  border-left: 3px solid #e0e0e0;
+  background: none;
+  cursor: pointer;
+}
+
+.activeButton {
+  color: #000;
+}
+
+.leefFrame {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  top: 0;
+}
+
+.loginLeefSmall {
+  display: none;
+}
+
+@media screen and (max-width: 1150px) {
+  .buttonContainer {
+    top: 1em;
+  }
+
+  .logoImage {
+    width: 100px;
+    height: 40px;
+  }
+
+  .leefFrame {
+    display: none;
+  }
+
+  .loginLeefSmall {
+    display: block;
+    width: 50%;
+    position: absolute;
+    object-fit: cover;
+    bottom: 0;
+    z-index: -1;
+    right: 0;
+  }
+
+  .buttonContainer {
+    justify-content: space-between;
+    border-bottom: 3px solid #e0e0e0;
+    padding: 0 10px 10px 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logoImage2 {
+    display: block;
+    width: 40px;
+    height: 30px;
+  }
+
+  .logoImage {
+    display: none;
+  }
+
+  .homeButtonsContainer {
+    border: none;
+  }
+
+  .buttonContainer {
+    justify-content: space-between;
+    border-bottom: 3px solid #e0e0e0;
+    padding-bottom: 10px;
+  }
+
+  .leefFrame {
+    display: none;
+  }
+
+  .leefFrameSmall {
+    width: -webkit-fill-available;
+    height: 37em;
+    position: absolute;
+    object-fit: cover;
+    bottom: 0;
+    z-index: -1;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .leefFrame,
+  .leefFrameSmall,
+  .vector,
+  .loginLeefSmall {
+    display: none;
+  }
+
+  .logoImage2 {
+    display: block;
+    width: 40px;
+    height: 30px;
+  }
+
+  .logoImage {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .leefFrame,
+  .leefFrameSmall,
+  .vector,
+  .loginLeefSmall {
+    display: none;
+  }
+
+  .logoImage {
+    display: none;
+  }
+
+  .logoImage2 {
+    display: block;
+    width: 40px;
+    height: 30px;
+  }
+}

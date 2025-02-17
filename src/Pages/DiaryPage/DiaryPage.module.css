@@ -1,0 +1,174 @@
+.container {
+  /* margin: 20px; */
+}
+
+.diaryPage {
+  display: flex;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.datePickerInput {
+  border: none;
+  font-weight: 700;
+  font-size: 34px;
+  color: #212121;
+}
+
+.addButton {
+  width: 48px;
+  height: 48px;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px 0 rgba(252, 132, 45, 0.5);
+  background: #fc842d;
+  transition: background 0.3s ease;
+}
+
+.addButton:hover {
+  background-color: #ffa667;
+}
+
+.entriesList {
+  max-height: 15em;
+  height: 15em;
+  overflow-y: scroll;
+  scrollbar-color: #ffa667 transparent;
+  margin-top: 2em;
+}
+
+.diaryFoodList {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.diaryFoods {
+  line-height: 3em;
+  border-bottom: 3px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  margin-right: 20px;
+}
+
+.deleteButton {
+  background: transparent;
+  border: none;
+  color: #9b9faa;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.leftSection {
+  width: 600px;
+  height: 343px;
+  padding-top: 147px;
+}
+
+.leftSectionContent {
+  padding: 10em 0 0 20px;
+}
+
+.rightSection {
+  width: 30em;
+  padding: 10em 0 0 6em;
+  background: #f0f1f3;
+  min-height: 90vh;
+}
+
+.summary {
+  margin-top: 147px;
+}
+
+.summaryForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.summaryItem {
+  display: flex;
+  justify-content: space-between;
+  width: 24em;
+}
+
+.summaryInput {
+  text-align: right;
+  border: none;
+  background: none;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-align: right;
+  color: #9b9faa;
+}
+
+@media screen and (max-width: 1200px) {
+  .diaryPage {
+    flex-direction: column;
+    max-height: 100vh;
+  }
+
+  .leftSection {
+    padding-top: 0;
+  }
+
+  .summary {
+    margin-right: unset;
+    margin-top: 2em;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .summaryItem {
+    width: 18em;
+  }
+
+  .rightSection {
+    width: 100%;
+    padding: 0;
+    margin-top: 16em;
+    min-height: 425px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .summary {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .summaryItem {
+    width: 100%;
+  }
+
+  .entryForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leftSection {
+    width: unset;
+    height: 343px;
+    padding-top: 0;
+  }
+
+  .leftSectionContent {
+    padding: 6em 20px 0 20px;
+  }
+
+  .addButton {
+    margin-top: 2em;
+  }
+}

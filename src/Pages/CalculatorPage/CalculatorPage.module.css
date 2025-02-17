@@ -1,0 +1,239 @@
+.container {
+  /* padding: 20px; */
+}
+
+.calculatorPage {
+  display: flex;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.homeDescription {
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 140%;
+  color: #212121;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.calcSubmitButton {
+  margin-top: 10em;
+  padding: 13px 49px;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px 0 rgba(252, 132, 45, 0.5);
+  background: #fc842d;
+  transition: background 0.3s ease;
+}
+
+.calcSubmitButton:hover {
+  background-color: #ffa667;
+}
+
+.leftSection {
+  width: 550px;
+  height: 343px;
+  padding-top: 147px;
+}
+
+.leftSectionContent {
+  padding: 10em 0 0 20px;
+}
+
+.rightSection {
+  width: 30em;
+  padding: 10em 0 0 6em;
+  background: #f0f1f3;
+  min-height: 90vh;
+}
+
+.summary {
+  margin-top: 147px;
+}
+
+.summaryForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.summaryItem {
+  display: flex;
+  justify-content: space-between;
+  width: 24em;
+}
+
+label {
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-align: right;
+  color: #9b9faa;
+  line-height: 2em;
+}
+
+.summaryInput {
+  text-align: right;
+  border: none;
+  background: none;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-align: right;
+  color: #9b9faa;
+}
+
+.foodsNotRecommended {
+  overflow-y: scroll;
+  scrollbar-color: #ffa667 transparent;
+  height: 24em;
+  width: 24em;
+}
+
+.foodsNotRecommended::-webkit-scrollbar-thumb {
+  background-color: #ffa667 transparent;
+}
+
+.foodList {
+  padding: 0;
+}
+
+.foodList li {
+  list-style-type: none;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: #9b9faa;
+  line-height: 2em;
+}
+
+@media screen and (max-width: 1150px) {
+  .calculatorPage {
+    flex-direction: column;
+    max-height: 100vh;
+  }
+
+  .leftSection {
+    padding-top: 0;
+  }
+
+  .summary {
+    margin-right: unset;
+    margin-top: 2em;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .summaryItem {
+    width: 18em;
+  }
+
+  .foodsNotRecommended {
+    height: 13em;
+    width: 22em;
+  }
+
+  .calcSubmitButton {
+    position: absolute;
+    top: 29em;
+    cursor: default;
+  }
+
+  .rightSection {
+    width: 100%;
+    padding: 0;
+    margin-top: 16em;
+    min-height: 425px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .formContainer {
+    margin-top: unset;
+  }
+
+  form {
+    justify-content: unset;
+  }
+
+  .submitButton {
+    position: absolute;
+    top: 27em;
+    cursor: default;
+  }
+
+  .foodsNotRecommended {
+    width: 13em;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .summary {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .summaryItem {
+    width: 100%;
+  }
+
+  .foodsNotRecommended {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .formContainer {
+    width: unset;
+  }
+
+  form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .submitButton {
+    position: unset;
+    width: fit-content;
+    margin-top: 2em;
+  }
+
+  .rightSection {
+    margin-top: 21em;
+    min-height: 500px;
+  }
+
+  .leftSection {
+    width: unset;
+    height: 343px;
+    padding-top: 0;
+  }
+
+  .leftSectionContent {
+    padding: 6em 20px 0 20px;
+  }
+
+  .calcSubmitButton {
+    top: 35em;
+  }
+
+  .summary {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .homeDescription {
+    font-size: 18px;
+  }
+}

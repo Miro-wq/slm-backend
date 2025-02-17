@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import logo from '../../assets/logo.png';
+import logo2 from '../../assets/logo2.png';
+import loginLeef from '../../assets/loginLeef.png';
+import loginLeefSmall from '../../assets/loginLeefSmall.png';
 import styles from './LoginHeader.module.css';
 
 const LoginHeader = () => {
@@ -56,6 +60,8 @@ const LoginHeader = () => {
     return (
         <>
             <div className={styles.buttonContainer}>
+                <img src={logo} alt="SlimMom logo" className={styles.logoImage} onClick={() => navigate('/')} />
+                <img src={logo2} alt="SlimMom logo" className={styles.logoImage2} onClick={() => navigate('/')} />
                 <div className={styles.calcBtnContainer}>
                     <div className={styles.homeButtonsContainer}>
                         <button
@@ -81,6 +87,8 @@ const LoginHeader = () => {
                     </div>
                 </div>
             </div>
+            <img src={loginLeef} alt="frame" className={styles.leefFrame} />
+            <img src={loginLeefSmall} alt="smallFrame" className={styles.loginLeefSmall} />
         </>
     );
 };
