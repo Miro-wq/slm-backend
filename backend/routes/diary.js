@@ -16,6 +16,48 @@ const authenticateToken = (req, res, next) => {
     });
 };
 
+/**
+ * @swagger
+ * /api/diary:
+ *   post:
+ *     summary: Create a new diary entry
+ *     tags: [Diary]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - entry_date
+ *               - product_name
+ *               - grams
+ *             properties:
+ *               entry_date:
+ *                 type: string
+ *                 format: date
+ *                 example: "2025-02-16"
+ *               product_name:
+ *                 type: string
+ *                 example: "Eggs"
+ *               grams:
+ *                 type: number
+ *                 example: 100
+ *     responses:
+ *       201:
+ *         description: Diary entry created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/DiaryEntry'
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Server error
+ */
+
 // POST /diary
 router.post('/', authenticateToken, async (req, res) => {
     const { entry_date, product_name, grams } = req.body;
@@ -34,6 +76,37 @@ router.post('/', authenticateToken, async (req, res) => {
     }
 });
 
+/**
+ * @swagger
+ * /api/diary:
+ *   get:
+ *     summary: Get diary entries for a specific date
+ *     tags: [Diary]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: query
+ *         name: entry_date
+ *         schema:
+ *           type: string
+ *           format: date
+ *         required: true
+ *         description: Date of diary entries (YYYY-MM-DD)
+ *     responses:
+ *       200:
+ *         description: A list of diary entries
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/DiaryEntry'
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Server error
+ */
+
 // GET /diary
 router.get('/', authenticateToken, async (req, res) => {
     const { entry_date } = req.query;
@@ -48,6 +121,32 @@ router.get('/', authenticateToken, async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 });
+
+/**
+ * @swagger
+ * /api/diary/{id}:
+ *   delete:
+ *     summary: Delete a diary entry by its ID
+ *     tags: [Diary]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The diary entry ID
+ *     responses:
+ *       200:
+ *         description: Diary entry deleted successfully
+ *       401:
+ *         description: Unauthorized
+ *       404:
+ *         description: Diary entry not found
+ *       500:
+ *         description: Server error
+ */
 
 // DELETE /diary/:id
 router.delete('/:id', authenticateToken, async (req, res) => {

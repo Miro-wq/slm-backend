@@ -3,6 +3,10 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require('swagger-jsdoc');
+const swaggerOptions = require('./swaggerOptions');
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -23,13 +27,17 @@ app.get('/', (req, res) => {
   res.send('Backend is running');
 });
 
+// swagger setup
+const specs = swaggerJsdoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
 // rute de autentificare și diary
 const authRoutes = require('./routes/auth');
 const diaryRoutes = require('./routes/diary');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/diary', diaryRoutes);
-app.use('/api/auth', authRoutes);
+// app.use('/api/auth', authRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
