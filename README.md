@@ -1,68 +1,43 @@
-# Getting Started with Create React App
+# SlimMom 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description 
 
-## Available Scripts
+SlimMom is a modern web application designed to help users monitor their daily calorie intake and track their meals on their weight loss journey. With personalized calculations and food recommendations based on individual health data, SlimMom offers an intuitive way to manage a healthier lifestyle.
 
-In the project directory, you can run:
+## Technologies Used
+- **React.js** – A powerful JavaScript library for building dynamic and responsive user interfaces.
+- **Material-UI (MUI)** – Provides pre-styled UI components to accelerate design and development.
+- **CSS Modules** – Enables modular and maintainable styling for component-based development.
+- **MongoDB** – Used as the backend solution for user authentication and PostgreSQL database management.
+- **React Router** – Facilitates smooth client-side navigation with protected routes.
 
-### `npm start`
+## Features 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **User Authentication**: Secure sign-up and login functionality using Supabase Auth ensures personalized access.
+- **Daily Calorie Calculator**: Users can enter personal details such as height, desired weight, age, blood type, and current weight to receive a recommended daily calorie intake.
+- **Meal Diary**: Log food consumption by adding entries with product names and serving sizes (grams). Each entry is timestamped and stored in the Supabase database for persistent tracking.
+- **Personalized Food Recommendations**: The app analyzes user data—especially blood type—to generate tailored lists of foods that are not recommended, using a curated products dataset.
+- **Real-Time Summary**:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    A comprehensive summary displays:
+  
+    **Left**: Remaining calories for the day.
+  
+    **Consumed**: Total calories consumed.
+  
+    **Daily Rate**: The personalized recommended intake.
+  
+    **n% of Normal**: The percentage of the daily rate that has been consumed.
+  
+- **Responsive Design**: The layout adapts to different screen sizes, ensuring that key information is always accessible. On larger screens, the summary section is fixed on the side, while on smaller devices, the design adjusts for optimal viewing.
+- **Protected Routes**: Sensitive pages such as the Calculator and Diary are accessible only to authenticated users, ensuring data privacy and security.
 
-### `npm test`
+## What You Can Do With SlimMom
+- **Track Your Progress**: Calculate your daily calorie needs and monitor your food intake to stay on track with your weight loss goals.
+- **Log Your Meals**: Easily add diary entries to review your eating habits over time.
+- **Receive Tailored Diet Insights**: Access personalized food recommendations based on your blood type and other health metrics.
+- **Manage Your Wellness Journey**: View real-time summaries that provide insights into your daily consumption and remaining calorie allowance, empowering you to make informed dietary choices.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Conclusion 
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
+SlimMom brings together modern web technologies and personalized nutrition insights to offer a comprehensive solution for managing a healthier lifestyle.
